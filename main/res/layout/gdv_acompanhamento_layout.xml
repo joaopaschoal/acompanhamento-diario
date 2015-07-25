@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/gdv_acompanhamento_linear_layout">
+        
+     <TextView android:id="@+id/gdv_acompanhamento_txv_data_acompanhamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_default_left_margin" />
+     
+     <TextView android:id="@+id/gdv_acompanhamento_txv_tempo_aerobica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_default_left_margin" />
+     
+     <TextView android:id="@+id/gdv_acompanhamento_txv_tempo_musculacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_default_left_margin" />
+     
+     <TextView android:id="@+id/gdv_acompanhamento_txv_tempo_total_estudo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_default_left_margin" />
+
+    <TextView android:id="@+id/gdv_acompanhamento_txv_nomes_assuntos"
+        android:layout_width="95dp"
+        android:background="@color/light_gray"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_default_left_margin" />
+     
+     <CheckBox android:id="@+id/gdv_acompanhamento_chk_exc_ur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="false" />
+</LinearLayout>
