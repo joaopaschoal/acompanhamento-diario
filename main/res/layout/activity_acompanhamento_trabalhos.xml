@@ -19,83 +19,31 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AcompanhamentoExerciciosActivity"
+    tools:context=".AcompanhamentoTrabalhosActivity"
     android:background="@color/light_gray"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
     <TextView
-        android:id="@+id/acompanhamento_txt_acomp"
+        android:id="@+id/acompanhamento_txv_acomp_trabalhos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_activity_acompanhamento_estudos"
+        android:text="@string/title_activity_acompanhamento_trabalhos"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_marginBottom="10dp"
         android:textColor="@color/blue" />
 
-    <LinearLayout android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/txt_data_referente"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/gray" />
-
-        <EditText
-            android:id="@+id/acompanhamento_estudos_edt_data_referente"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false"
-            android:layout_marginLeft="10dp"
-            android:hint="@string/txt_hint_edt_data_referente"
-            android:inputType="date">
-        </EditText>
-    </LinearLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/disciplina"
+        android:text="@string/projeto"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/gray" />
 
     <Spinner
-        android:id="@+id/acompanhamento_estudos_spn_disciplinas"
+        android:id="@+id/acompanhamento_trabalhos_spn_projetos"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dft_spn_height" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/assunto"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/gray" />
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Spinner
-            android:id="@+id/acompanhamento_estudos_spn_assuntos"
-            android:layout_width="260dp"
-            android:layout_height="@dimen/dft_spn_height" />
-        <ImageButton
-            android:id="@+id/acompanhamento_estudos_btn_expandir_sub_assuntos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/arrow_combo"
-            android:background="@null" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/acompanhamento_estudos_linlyt_subassuntos"
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-    </LinearLayout>
 
     <LinearLayout android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -104,17 +52,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/acompanhamento_estudos_txt_tempo_estudo"
+            android:text="@string/acompanhamento_trabalhos_tempo_trabalho"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/gray" />
         <EditText
-            android:id="@+id/acompanhamento_estudos_edt_tempo_estudo"
+            android:id="@+id/acompanhamento_trabalhos_edt_tempo_trabalhado"
             android:layout_marginLeft="10dp"
-            android:layout_width="110dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:inputType="number" />
         <ImageButton
-            android:id="@+id/acompanhamento_estudos_btn_adicionar_estudo"
+            android:id="@+id/acompanhamento_trabalhos_btn_adicionar_trabalho"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/add"
@@ -126,26 +74,38 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/acompanhamento_estudos_assuntos_estudados"
+        android:text="@string/acompanhamento_trabalhos_projetos_trabalhados"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/gray" />
 
     <GridView
-        android:id="@+id/acompanhamento_estudos_gdv_assuntos_estudados"
+        android:id="@+id/acompanhamento_trabalhos_gdv_projetos_trabalhados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:stretchMode="columnWidth"
         android:background="@color/gray"
         android:gravity="center" />
 
-    <Button
-        android:id="@+id/acompanhamento_estudos_btn_avancar"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/txt_next"
-        android:drawableEnd="@drawable/arrow_lr"
-        android:drawablePadding="@dimen/drawable_end_dft_padding" />
+        android:layout_marginTop="10dp">
+        <Button
+            android:id="@+id/acompanhamento_trabalhos_btn_voltar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_back"
+            android:drawableStart="@drawable/arrow_rl"
+            android:drawablePadding="@dimen/drawable_end_dft_padding" />
+        <Button
+            android:id="@+id/acompanhamento_trabalhos_btn_avancar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_next"
+            android:drawableEnd="@drawable/arrow_lr"
+            android:drawablePadding="@dimen/drawable_end_dft_padding" />
+    </LinearLayout>
 </LinearLayout>
 </ScrollView>
 </LinearLayout>

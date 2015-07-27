@@ -5,12 +5,13 @@ import joaopaulo.acompdiario.business.bo.AcompanhamentoBO;
 import joaopaulo.acompdiario.business.bo.AcompanhamentoBOImpl;
 import joaopaulo.acompdiario.business.bo.EstudoBO;
 import joaopaulo.acompdiario.business.bo.EstudoBOImpl;
+import joaopaulo.acompdiario.business.bo.TrabalhoBO;
+import joaopaulo.acompdiario.business.bo.TrabalhoBOImpl;
 import joaopaulo.acompdiario.business.exception.QueryModelException;
 import joaopaulo.acompdiario.business.exception.SaveModelException;
-import joaopaulo.acompdiario.persistence.dao.util.UtilDAO;
-import joaopaulo.acompdiario.persistence.dao.util.UtilDAOImpl;
 import joaopaulo.acompdiario.persistence.model.Acompanhamento;
 import joaopaulo.acompdiario.persistence.model.Estudo;
+import joaopaulo.acompdiario.persistence.model.Trabalho;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -30,6 +31,7 @@ public class AcompanhamentoExerciciosActivity extends BaseActivity {
 	private Acompanhamento acompanhamento;
 	private AcompanhamentoBO acompanhamentoBO;
     private EstudoBO estudoBO;
+    private TrabalhoBO trabalhoBO;
 	
 	// ----- Events ----- //
 	@Override
@@ -39,6 +41,7 @@ public class AcompanhamentoExerciciosActivity extends BaseActivity {
 
 		acompanhamentoBO = AcompanhamentoBOImpl.getInstance(this);
         estudoBO = EstudoBOImpl.getInstance(this);
+        trabalhoBO = TrabalhoBOImpl.getInstance(this);
 
 		intializeScreen();
 		
@@ -52,21 +55,37 @@ public class AcompanhamentoExerciciosActivity extends BaseActivity {
                     //TODO: Implementar operações dentro de uma transação
                     acompanhamentoBO.open();
                     estudoBO.open();
+                    trabalhoBO.open();
 
                     //Trate-se de um acompanhamento previamente salvo?
                     if (acompanhamento.getId() != null && acompanhamento.getId() > 0) {
                         //Sim -> obtém e remove estudos antigos para registrar os novos:
-                        List<Estudo> estudosAnteriores = estudoBO.selectEstudosFromAcompanhamento(acompanhamento.getId());
+                        List<Estudo> estudosAnteriores = estudoBO.selectEstudosFromAcompanhamentoId(acompanhamento.getId());
                         for (Estudo estudoAnterior : estudosAnteriores) {
                             estudoBO.delete(estudoAnterior);
+                        }
+
+                        //Sim -> obtém e remove trabalhos antigos para registrar os novos:
+                        List<Trabalho> trabalhosAnteriores = trabalhoBO.selectTrabalhosFromAcompanhamentoId(acompanhamento.getId());
+                        for (Trabalho trabalhoAnterior : trabalhosAnteriores) {
+                            trabalhoBO.delete(trabalhoAnterior);
                         }
                     }
 
                     acompanhamentoBO.save(acompanhamento);
 
                     for (Estudo estudo : acompanhamento.getEstudos()) {
+                        estudo.setId(null);
                         estudoBO.save(estudo);
                     }
+
+                    for (Trabalho trabalho : acompanhamento.getTrabalhos()) {
+                        trabalho.setId(null);
+                        trabalhoBO.save(trabalho);
+                    }
+                    Toast.makeText(AcompanhamentoExerciciosActivity.this, getString(R.string.model_successful_saved, "Acompanhamento"), Toast.LENGTH_LONG).show();
+                    Intent itPagLista = new Intent(AcompanhamentoExerciciosActivity.this, ListarAcompanhamentosActivity.class);
+                    startActivity(itPagLista);
                 } catch (SaveModelException ex) {
                     new AlertDialog.Builder(AcompanhamentoExerciciosActivity.this)
                             .setTitle("Falha ao Salvar Acompanhamento")
@@ -75,7 +94,7 @@ public class AcompanhamentoExerciciosActivity extends BaseActivity {
                             .show();
                 } catch (QueryModelException ex) {
                     new AlertDialog.Builder(AcompanhamentoExerciciosActivity.this)
-                            .setTitle("Falha ao Verificar Existência de Estudos anteriores para este acompanhamento")
+                            .setTitle("Falha ao Verificar Existência de Estudos ou Trabalhos anteriores para este acompanhamento")
                             .setMessage(ex.getMessage())
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
@@ -83,9 +102,6 @@ public class AcompanhamentoExerciciosActivity extends BaseActivity {
                     acompanhamentoBO.close();
                     estudoBO.close();
                 }
-                Toast.makeText(AcompanhamentoExerciciosActivity.this, getString(R.string.model_successful_saved, "Acompanhamento"), Toast.LENGTH_LONG).show();
-                Intent itPagLista = new Intent(AcompanhamentoExerciciosActivity.this, ListarAcompanhamentosActivity.class);
-                startActivity(itPagLista);
 			}
 		});
 
@@ -93,7 +109,7 @@ public class AcompanhamentoExerciciosActivity extends BaseActivity {
         btnVoltar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent itNext = new Intent(AcompanhamentoExerciciosActivity.this, AcompanhamentoEstudosActivity.class);
+                Intent itNext = new Intent(AcompanhamentoExerciciosActivity.this, AcompanhamentoTrabalhosActivity.class);
                 itNext.putExtra("acompanhamento", acompanhamento);
                 startActivity(itNext);
             }
@@ -103,8 +119,6 @@ public class AcompanhamentoExerciciosActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        acompanhamentoBO.open();
-//        estudoBO.open();
 
         //Testa se foi passado um acomp para edição:
         Bundle extras = getIntent().getExtras();

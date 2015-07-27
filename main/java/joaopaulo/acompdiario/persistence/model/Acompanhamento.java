@@ -13,6 +13,7 @@ public class Acompanhamento extends Model implements Comparable<Acompanhamento> 
 	private int periodoMusculacao;
 	private Boolean flgExUr;
     private List<Estudo> estudos;
+	private List<Trabalho> trabalhos;
 	
 	public static final String ACTUAL_NAME = "Acompanhamento";
 	
@@ -20,6 +21,7 @@ public class Acompanhamento extends Model implements Comparable<Acompanhamento> 
 	public Acompanhamento() {
         this.flgExUr = false;
         estudos = new ArrayList<Estudo>();
+        trabalhos = new ArrayList<Trabalho>();
 	}
 	
 	// --- Getters e Setters --- //
@@ -69,6 +71,14 @@ public class Acompanhamento extends Model implements Comparable<Acompanhamento> 
 
     public void setEstudos(List<Estudo> estudos) {
         this.estudos = estudos;
+    }
+
+    public List<Trabalho> getTrabalhos() {
+        return trabalhos;
+    }
+
+    public void setTrabalhos(List<Trabalho> trabalhos) {
+        this.trabalhos = trabalhos;
     }
 
     @Override

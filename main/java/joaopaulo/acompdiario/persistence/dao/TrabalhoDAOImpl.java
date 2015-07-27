@@ -4,7 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.List;
+
 import joaopaulo.acompdiario.business.exception.InsertModelException;
+import joaopaulo.acompdiario.business.exception.QueryModelException;
 import joaopaulo.acompdiario.business.exception.UpdateModelException;
 import joaopaulo.acompdiario.persistence.dao.util.UtilDAO;
 import joaopaulo.acompdiario.persistence.dao.util.UtilDAOImpl;
@@ -94,5 +97,11 @@ public class TrabalhoDAOImpl extends SQLiteDAO<Trabalho> implements TrabalhoDAO 
 		}
 		return model;
 	}
-	
+
+	@Override
+	public List<Trabalho> selectTrabalhosFromAcompanhamentoId(Integer idAcompanhamento) throws QueryModelException {
+        ContentValues cv = new ContentValues();
+        cv.put(COL_ID_ACOMPANHAMENTO, idAcompanhamento);
+        return select(cv);
+	}
 }

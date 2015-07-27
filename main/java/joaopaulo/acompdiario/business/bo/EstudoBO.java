@@ -9,7 +9,7 @@ import joaopaulo.acompdiario.persistence.model.Disciplina;
 import joaopaulo.acompdiario.persistence.model.Estudo;
 
 public abstract class EstudoBO extends BO<Estudo,EstudoDAO> {
-    public abstract List<Estudo> selectEstudosFromAcompanhamento(int idAcompanhamento) throws QueryModelException;
+    public abstract List<Estudo> selectEstudosFromAcompanhamentoId(int idAcompanhamento) throws QueryModelException;
 
     // ----- Specific CategoriaCientifica Methods ----- //
 	

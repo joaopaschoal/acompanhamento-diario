@@ -42,6 +42,10 @@
             android:label="@string/title_activity_listar_acompanhamentos" >
         </activity>
         <activity
+            android:name=".view.activity.AcompanhamentoTrabalhosActivity"
+            android:label="@string/title_activity_acompanhamento_trabalhos" >
+        </activity>
+        <activity
             android:name=".view.activity.AcompanhamentoExerciciosActivity"
             android:label="@string/title_activity_acompanhamento_exercicios" >
         </activity>

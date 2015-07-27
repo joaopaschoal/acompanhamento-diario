@@ -52,7 +52,7 @@ public class EstudoBOImpl extends EstudoBO {
 	}
 
     @Override
-    public List<Estudo> selectEstudosFromAcompanhamento(int idAcompanhamento) throws QueryModelException {
+    public List<Estudo> selectEstudosFromAcompanhamentoId(int idAcompanhamento) throws QueryModelException {
         return dao.selectEstudosByAcompanhamentoId(idAcompanhamento);
     }
 }

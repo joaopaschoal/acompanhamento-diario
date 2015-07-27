@@ -92,7 +92,7 @@ public class AcompanhamentoAdapter extends BaseAdapter {
             AssuntoBO assuntoBO = AssuntoBOImpl.getInstance(context);
             estudoBO.open();
             assuntoBO.open();
-            List<Estudo> estudos = estudoBO.selectEstudosFromAcompanhamento(idAcomp);
+            List<Estudo> estudos = estudoBO.selectEstudosFromAcompanhamentoId(idAcomp);
 
             boolean flgPossuiEstudos = false;
             for (Estudo estudo : estudos) {
@@ -110,7 +110,7 @@ public class AcompanhamentoAdapter extends BaseAdapter {
             e.printStackTrace();
             Toast.makeText(context, context.getString(R.string.failed_loading_model_list, Estudo.ACTUAL_NAME), Toast.LENGTH_LONG).show();
         }
-        holder.txvDataAcompanhamento.setText(UtilDate.dateToShortBrStringGmtTime(acompanhamento.getDataAcompanhamento().getTime()));
+        holder.txvDataAcompanhamento.setText(UtilDate.dateToShortBrStringGmtTime(acompanhamento.getDataAcompanhamento().getTime(), true));
 		holder.txvPeriodoAerobica.setText(String.valueOf(acompanhamento.getPeriodoAerobica()));
         holder.txvPeriodoMusculacao.setText(String.valueOf(acompanhamento.getPeriodoMusculacao()));
         holder.txvPeriodoTotalEstudo.setText(String.valueOf(tempoTotalEstudo));

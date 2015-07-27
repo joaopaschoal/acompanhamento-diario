@@ -6,10 +6,15 @@ package joaopaulo.acompdiario.persistence.model;
 public class Trabalho extends Model implements Comparable<Trabalho> {
 
     private int tempoMins;
-
     private Projeto projeto;
-
     private Acompanhamento acompanhamento;
+
+    public static final String ACTUAL_NAME = "Trabalho";
+
+    public Trabalho() {
+        this.projeto = new Projeto();
+        this.acompanhamento = new Acompanhamento();
+    }
 
     public int getTempoMins() {
         return tempoMins;

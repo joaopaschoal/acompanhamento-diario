@@ -46,6 +46,7 @@
     <string name="title_activity_manage_assuntos">Assuntos</string>
     <string name="title_activity_acompanhamento">Novo Acompanhamento</string>
     <string name="title_activity_acompanhamento_estudos">Acompanhamento Estudos</string>
+    <string name="title_activity_acompanhamento_trabalhos">Acompanhamento Trabalhos</string>
     <string name="title_activity_acompanhamento_exercicios">Acompanhamento Exercícios</string>
     <string name="title_activity_exportar_bd">Exportar Banco de Dados</string>
     <string name="title_activity_listar_acompanhamentos">Listar Acompanhamentos</string>
@@ -55,7 +56,7 @@
     <string name="title_activity_manage_tecnologias">Tecnologias</string>
     <string name="title_activity_manage_naturezas_projeto">Naturezas de Projeto</string>
     <string name="title_activity_manage_donos_produto">Donos de Produto</string>
-    <string name="title_activity_list_projetos">Projetos</string>
+    <string name="title_activity_list_projetos">Meus Projetos</string>
     <string name="title_activity_new_projeto">Novo Projeto</string>
 
 
@@ -99,22 +100,26 @@
     <string name="index_ferramentas_preferencias">Preferencias</string>
 
 
+    <!-- AcompanhamentoEstudosActivity -->
+    <string name="acompanhamento_estudos_txt_tempo_estudo">Tempo de Estudo</string>
+    <string name="acompanhamento_estudos_assunto_doesnt_contains_subassuntos">Este assunto não tem nenhum subassunto</string>
+    <string name="acompanhamento_estudos_assuntos_estudados">Assuntos Estudados</string>
+
+    <!-- AcompanhamentoTrabalhosActivity -->
+    <string name="acompanhamento_trabalhos_tempo_trabalho">Tempo Trabalhado</string>
+    <string name="acompanhamento_trabalhos_projetos_trabalhados">Projetos Trabalhos</string>
+
     <!-- AcompanhamentoExerciciosActivity -->
     <string name="acompanhamento_exercicios_txt_tempo_aerobica">Tempo de Aeróbica</string>
     <string name="acompanhamento_exercicios_txt_tempo_musculacao">Tempo de Musculação</string>
     <string name="acompanhamento_exercicios_txt_chk_ex_ur">Exc Ur?</string>
-
-    <!-- AcompanhamentoEstudosActivity -->
-    <string name="acompanhamento_estudos_txt_tempo_estudo">Tempo de Estudo</string>
-    <string name="acompanhamento_estudos_assunto_doesnt_contains_subassuntos">Este assunto não tem nenhum subassunto</string>
-    <string name="acompanhamento_estudos_estudos_do_acompanhamento">Estudos do Acompanhamento</string>
 
     <!-- Exportar BD -->
     <string name="exportar_bd_btn_exec_sql">Executar SQL</string>
     <string name="exportar_bd_importar_bd">Importar Banco de Dados</string>
     <string name="exportar_bd_caminho_bd">Ex: Download/database.db3</string>
 
-    <!-- NewProjetoActivity -->
+    <!-- NewProjetoActivity & ListProjetosActivity -->
     <string name="new_projeto_novo_projeto">Novo Projeto</string>
     <string name="list_projetos_novo_projeto">Novo Projeto</string>
 

@@ -89,8 +89,6 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
 
     @Override
     protected void onStart() {
-        //intializeScreen();
-
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             //Testa se foi passado um acomp para edição:
@@ -118,7 +116,6 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
     @Override
 	protected void onResume() {
 		super.onResume();
-        getRootLinearLayout().setSelected(true);
     }
 
     @Override
@@ -215,7 +212,7 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
             //O acompanhamento já esteja persistido no BD e sua lista de estudos esteja vazia?
             if (acompanhamento.getEstudos().size() == 0 && acompanhamento.getId() != null && acompanhamento.getId() > 0) {
                 //sim -> pesquisa por possíveis estudos persistidos no BD deste acomp e se houver os inclui na coleção de estudos do acomp:
-                List<Estudo> estudosJaExistentes = estudoBO.selectEstudosFromAcompanhamento(acompanhamento.getId());
+                List<Estudo> estudosJaExistentes = estudoBO.selectEstudosFromAcompanhamentoId(acompanhamento.getId());
                 for (Estudo estudo : estudosJaExistentes) {
                     Assunto assunto = assuntoBO.selectOneById(estudo.getAssunto().getId());
                     estudo.setAssunto(assunto);
@@ -283,14 +280,14 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
 	// ----- Private Methods ----- //
     private void bindEvents() {
         //Btn Avançar Click
-        Button btnAvancarParaExercicios = (Button)findViewById(R.id.acompanhamento_estudos_btn_avancar);
-        btnAvancarParaExercicios.setOnClickListener(new OnClickListener() {
+        Button btnAvancarParaTrabalhos = (Button)findViewById(R.id.acompanhamento_estudos_btn_avancar);
+        btnAvancarParaTrabalhos.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 fillObjectFromScreen();
 
-                Intent itNext = new Intent(AcompanhamentoEstudosActivity.this, AcompanhamentoExerciciosActivity.class);
-                itNext.putExtra("acompanhamento", acompanhamento); //verificar se aqui a coleção está preenchida
+                Intent itNext = new Intent(AcompanhamentoEstudosActivity.this, AcompanhamentoTrabalhosActivity.class);
+                itNext.putExtra("acompanhamento", acompanhamento);
                 startActivity(itNext);
             }
         });
@@ -324,7 +321,7 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
         btnExpandirSubAssuntos.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                createSubAssunto(assuntosAdapter.getItem((int)getAssuntosSpinner().getSelectedItemId()).getId()) ;
+                createSubAssunto(assuntosAdapter.getItem((int) getAssuntosSpinner().getSelectedItemId()).getId());
             }
         });
 
@@ -335,7 +332,6 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
             public void onClick(View view) {
                 Estudo estudo = new Estudo();
                 EditText edtTempoEstudo = getEditTextTempoEstudo();
-                GridView gdvAssuntosEstudados = getGridViewAssuntosEstudados();
 
                 Assunto assunto = fillAssuntoFromScreen(null);
                 estudo.setTempoMins(UtilLanguage.strToInt(edtTempoEstudo.getText().toString()));
@@ -358,8 +354,6 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {  }
         });
-
-        final GridView gdvAssuntosEstudados = getGridViewAssuntosEstudados();
     }
 
     private void createSubAssunto(int idAssunto) {
@@ -487,11 +481,13 @@ public class AcompanhamentoEstudosActivity extends BaseActivity {
 
 		acompanhamento.setDataRegistro(tsp);
 		acompanhamento.setDataAcompanhamento(getDateFromDateEdit(edtDataReferente));
+
+        //A colecao de estudos do acomp não precisa ser preenchida pois está bindada diretamente ao EstudosAdapter
 	}
 	
 	private void fillScreenFromObject() {
 		EditText edtDataReferente = getEditTextDataReferente();
-		edtDataReferente.setText(UtilDate.dateToBrStringLocalTime(acompanhamento.getDataAcompanhamento().getTime()));
+		edtDataReferente.setText(UtilDate.dateToShortBrStringGmtTime(acompanhamento.getDataAcompanhamento().getTime(), false));
         loadGridView();
 	}
 	

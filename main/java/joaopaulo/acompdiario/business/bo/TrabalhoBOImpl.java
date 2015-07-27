@@ -2,6 +2,9 @@ package joaopaulo.acompdiario.business.bo;
 
 import android.content.Context;
 
+import java.util.List;
+
+import joaopaulo.acompdiario.business.exception.QueryModelException;
 import joaopaulo.acompdiario.business.exception.ValidationException;
 import joaopaulo.acompdiario.persistence.dao.TrabalhoDAO;
 import joaopaulo.acompdiario.persistence.dao.TrabalhoDAOImpl;
@@ -37,7 +40,10 @@ public class TrabalhoBOImpl extends TrabalhoBO {
 		if (model.getAcompanhamento() == null || model.getAcompanhamento().getId() == null || model.getAcompanhamento().getId() <= 0) {
 			throw new ValidationException("O Acompanhamento não foi especificado");
 		}
-
 	}
-	
+
+	@Override
+	public List<Trabalho> selectTrabalhosFromAcompanhamentoId(Integer idAcompanhamento) throws QueryModelException {
+        return dao.selectTrabalhosFromAcompanhamentoId(idAcompanhamento);
+	}
 }
