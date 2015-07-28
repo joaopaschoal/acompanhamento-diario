@@ -33,5 +33,5 @@ public class AcompanhamentoBOImpl extends AcompanhamentoBO {
 			throw new ValidationException("A data do acompanhamento é obrigatória");
 		}
 	}
-	
+
 }

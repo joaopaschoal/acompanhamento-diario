@@ -22,31 +22,16 @@
         android:id="@+id/listar_acompanhamentos_gdv_header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Legenda:"/>
         <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="Data " />
-     
-	     <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Aeróbica " />
-	     
-	     <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Musculação " />
-	     
-	     <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="Estudo " />
-	     
-	     <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:text="ExcUr" />
+	        android:text="a:  aeróbica | m:  musculação | e:  estudo | t:  trabalho"
+            android:textSize="12dp" />
     </LinearLayout>
     
     <GridView 
