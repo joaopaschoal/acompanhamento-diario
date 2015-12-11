@@ -124,7 +124,9 @@ public class AcompanhamentoAdapter extends BaseAdapter {
             for (Trabalho trabalho : trabalhos) {
                 tempoTotalTrabalho += trabalho.getTempoMins();
                 Projeto projeto = projetoBO.selectOneById(trabalho.getProjeto().getId());
-                projetosTrabalhados += projeto.getNome().substring(0, 14) + ", ";
+                int limiteAbrvNome = 15;
+                String nomeProjetoAbreviado = projeto.getNome().length() > limiteAbrvNome ? projeto.getNome().substring(0, limiteAbrvNome-1) : projeto.getNome();
+                projetosTrabalhados += nomeProjetoAbreviado + ", ";
                 flgPossuiTrabalhos = true;
             }
             if (flgPossuiTrabalhos) {
