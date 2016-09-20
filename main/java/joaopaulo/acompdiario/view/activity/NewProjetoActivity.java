@@ -73,7 +73,7 @@ public class NewProjetoActivity extends BaseActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            //Testa se foi passado um acomp para edição:
+            //Testa se foi passado um acomp para edicao:
             int idProjeto = getIntent().getExtras().getInt("id_projeto_to_edit");
             if (idProjeto > 0) {
                 try {
@@ -200,7 +200,6 @@ public class NewProjetoActivity extends BaseActivity {
 
 
 
-
     }
 
     private void navigateToListProjects() {
@@ -209,7 +208,7 @@ public class NewProjetoActivity extends BaseActivity {
     }
 
     protected void loadGridView() {
-        //binda a coleção de ProjetoTecnologia do projeto ao adapter do gridview:
+        //binda a colecao de ProjetoTecnologia do projeto ao adapter do gridview:
         projetoTecnologiaAdapter = new ProjetoTecnologiaAdapter(projeto.getTecnologiasProjeto(), this);
         GridView gdvItens = getGridViewTecnologiasProjeto();
         gdvItens.setAdapter(projetoTecnologiaAdapter);
@@ -300,9 +299,9 @@ public class NewProjetoActivity extends BaseActivity {
 
     protected void loadTecnologiasIntoGridViewFromProjeto(Projeto projeto) {
         try {
-            //O projeto já esteja persistido no BD e sua lista de estudos esteja vazia?
+            //O projeto ja esteja persistido no BD e sua lista de estudos esteja vazia?
             if (projeto.getTecnologiasProjeto().size() == 0 && projeto.getId() != null && projeto.getId() > 0) {
-                //sim -> pesquisa por possíveis tecnologias persistidas no BD deste projeto e se houver os inclui na coleção:
+                //sim -> pesquisa por possiveis tecnologias persistidas no BD deste projeto e se houver os inclui na colecao:
                 List<ProjetoTecnologia> tecnologiasDoProjetoJaExistentes = projetoTecnologiaBO.selectTecnologiasFromProjeto(projeto.getId());
                 for (ProjetoTecnologia projetoTecnologia : tecnologiasDoProjetoJaExistentes) {
                     projetoTecnologiaAdapter.add(projetoTecnologia);
