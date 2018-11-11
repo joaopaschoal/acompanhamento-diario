@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="joaopaulo.acompanhamentodiario.view.activity.IndexEstudoActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tools"
+            android:id="@+id/index_trabalho_img_mouse"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="-5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/title_activity_index_ferramentas"
+            android:id="@+id/index_ferramentas_txv_ferramentas"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:textColorHighlight="@color/gray" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/index_ferramentas_exportar_importar_bd"
+        android:id="@+id/index_ferramentas_btn_categorias_cientificas"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dft_index_buttons_margin"
+        android:layout_marginTop="@dimen/dft_index_buttons_margin" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/index_ferramentas_lacunas_no_acompanhamento"
+        android:id="@+id/index_ferramentas_btn_lacunas_acompanhamento"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dft_index_buttons_margin" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/index_ferramentas_acompanhamento_de_peso"
+        android:id="@+id/index_ferramentas_btn_acompanhamento_peso"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dft_index_buttons_margin" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/index_ferramentas_preferencias"
+        android:id="@+id/index_ferramentas_preferencias"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dft_index_buttons_margin" />
+
+</LinearLayout>

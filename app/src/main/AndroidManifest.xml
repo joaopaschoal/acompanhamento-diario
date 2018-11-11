@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="joaopaulo.acompanhamentodiario">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".view.activity.ManageCategoriasCientificasActivity"
+            android:label="@string/title_activity_manage_categorias_cientificas" />
+        <activity
+            android:name=".view.activity.ManageDisciplinasActivity"
+            android:label="@string/title_activity_manage_disciplinas" />
+        <activity
+            android:name=".view.activity.ManageAssuntosActivity"
+            android:label="@string/title_activity_manage_assuntos" />
+        <activity
+            android:name=".view.activity.CobaiaActivity"
+            android:label="@string/title_activity_cobaia" />
+        <activity
+            android:name=".view.activity.ExportarBDActivity"
+            android:label="@string/title_activity_exportar_bd" />
+        <activity
+            android:name=".view.activity.ListarAcompanhamentosActivity"
+            android:label="@string/title_activity_listar_acompanhamentos" />
+        <activity
+            android:name=".view.activity.AcompanhamentoTrabalhosActivity"
+            android:label="@string/title_activity_acompanhamento_trabalhos" />
+        <activity
+            android:name=".view.activity.AcompanhamentoExerciciosActivity"
+            android:label="@string/title_activity_acompanhamento_exercicios" />
+        <activity
+            android:name=".view.activity.IndexEstudoActivity"
+            android:label="@string/title_activity_index_estudo" />
+        <activity
+            android:name=".view.activity.IndexTrabalhoActivity"
+            android:label="@string/title_activity_index_trabalho" />
+        <activity
+            android:name=".view.activity.IndexFerramentasActivity"
+            android:label="@string/title_activity_index_ferramentas" />
+        <activity
+            android:name=".view.activity.ManageTecnologiasActivity"
+            android:label="@string/title_activity_manage_tecnologias" />
+        <activity
+            android:name=".view.activity.ManageNaturezasProjetoActivity"
+            android:label="@string/title_activity_manage_naturezas_projeto" />
+        <activity
+            android:name=".view.activity.ManageDonosProdutoActivity"
+            android:label="@string/title_activity_manage_donos_produto" />
+        <activity
+            android:name=".view.activity.NewProjetoActivity"
+            android:label="@string/title_activity_new_projeto" />
+        <activity
+            android:name=".view.activity.ListProjetosActivity"
+            android:label="@string/title_activity_list_projetos" />
+        <activity
+            android:name=".view.activity.SobreActivity"
+            android:label="@string/title_activity_sobre" />
+        <activity
+            android:name=".view.activity.AcompanhamentoEstudosActivity"
+            android:label="@string/title_activity_acompanhamento_estudos">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

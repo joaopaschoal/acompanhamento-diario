@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    android:background="@color/light_gray">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:background="@color/light_gray">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/acompanhamento_estudos_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".view.activity.AcompanhamentoEstudosActivity"
+    android:background="@color/light_gray"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/acompanhamento_txt_acomp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_activity_acompanhamento_estudos"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/blue" />
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_data_referente"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/gray" />
+
+        <EditText
+            android:id="@+id/acompanhamento_estudos_edt_data_referente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/txt_hint_edt_data_referente"
+            android:inputType="date">
+        </EditText>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disciplina"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <Spinner
+        android:id="@+id/acompanhamento_estudos_spn_disciplinas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@android:style/Widget.Material.Light.Spinner.Underlined"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/assunto"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <LinearLayout
+        android:id="@+id/acompanhamento_estudos_linlyt_assuntos"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/acompanhamento_estudos_spn_assuntos"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            style="@android:style/Widget.Material.Light.Spinner.Underlined" />
+
+        <ImageButton
+            android:id="@+id/acompanhamento_estudos_btn_expandir_sub_assuntos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/arrow_combo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/acompanhamento_estudos_linlyt_subassuntos"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </LinearLayout>
+
+    <LinearLayout android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/acompanhamento_estudos_txt_tempo_estudo"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/gray" />
+        <EditText
+            android:id="@+id/acompanhamento_estudos_edt_tempo_estudo"
+            android:layout_marginLeft="10dp"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+        <ImageButton
+            android:id="@+id/acompanhamento_estudos_btn_adicionar_estudo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/add"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="3dp"
+            android:background="@null"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/acompanhamento_estudos_assuntos_estudados"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/gray" />
+
+    <GridView
+        android:id="@+id/acompanhamento_estudos_gdv_assuntos_estudados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchMode="columnWidth"
+        android:background="@color/gray"
+        android:gravity="fill_horizontal" />
+
+    <Button
+        android:id="@+id/acompanhamento_estudos_btn_avancar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/txt_next"
+        android:drawableEnd="@drawable/arrow_lr"
+        android:drawablePadding="@dimen/drawable_end_dft_padding" />
+</LinearLayout>
+</ScrollView>
+</LinearLayout>

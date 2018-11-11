@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_acompanhamento"
+        android:title="@string/title_activity_acompanhamento"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_listar_acompanhamentos"
+        android:title="@string/title_activity_listar_acompanhamentos"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_index_estudo"
+        android:title="@string/title_activity_index_estudo"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_index_trabalho"
+        android:title="@string/title_activity_index_trabalho"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_index_ferramentas"
+        android:title="@string/title_activity_index_ferramentas"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_index_sobre"
+        android:title="@string/sobre"
+        app:showAsAction="never" />
+</menu>
